@@ -1,0 +1,184 @@
+/* Root / Fluid typography */
+:root {
+  --bg-gradient: linear-gradient(to right, #6a11cb, #2575fc);
+  --radius: 16px;
+  --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  --header-bg: #3d0b99;
+  --accent: #6a11cb;
+  --transition: 0.3s ease-in-out;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%; /* base for rems */
+}
+
+body {
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg-gradient);
+  color: #2f3640;
+  line-height: 1.6;
+  font-size: clamp(16px, 1.125vw, 18px); /* fluid base font */
+  min-height: 100vh;
+}
+
+/* Header */
+.header {
+  background-color: var(--header-bg);
+  color: white;
+  padding: clamp(1.5rem, 2vw, 2rem) 1rem;
+  text-align: center;
+  font-size: clamp(2rem, 3vw, 2.5rem); /* responsive sizing */
+  font-weight: 700;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+  letter-spacing: 1px;
+}
+
+/* Profile Picture Section */
+.profile-picture {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 1100px;
+  margin: 3rem auto;
+  padding: clamp(1.5rem, 2.5vw, 2.5rem);
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  gap: 1.5rem;
+}
+
+.profile-picture img {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 6px solid var(--accent);
+  object-fit: cover;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+.profile-text {
+  flex: 1;
+  margin-left: 2rem;
+  min-width: 220px;
+}
+
+.profile-text h2 {
+  font-size: clamp(1.75rem, 2.5vw, 2.2rem);
+  color: #3d0b99;
+  margin-bottom: 0.5rem;
+}
+
+.profile-text p {
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+  color: #444;
+}
+
+/* About & Skills */
+.about-page,
+.skills-page {
+  background-color: #ffffff;
+  padding: clamp(1.5rem, 2.5vw, 3rem);
+  margin: 2rem auto;
+  max-width: 1000px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  font-size: clamp(1rem, 1.1vw, 1.15rem);
+}
+
+.about-page h2,
+.skills-page h2 {
+  font-size: clamp(1.6rem, 2.2vw, 2rem);
+  color: #2575fc;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--accent);
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.soft-skills p {
+  font-size: clamp(1rem, 1.1vw, 1.15rem);
+  color: #333;
+  line-height: 1.9;
+}
+
+/* Button Section */
+.click {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+button {
+  padding: 1rem 2.5rem;
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+  font-weight: 600;
+  border-radius: 12px;
+  background-color: var(--accent);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+button:hover {
+  background-color: #2575fc;
+  transform: scale(1.07);
+}
+
+/* Footer */
+footer {
+  background-color: var(--header-bg);
+  color: white;
+  padding: 1.5rem;
+  text-align: center;
+  font-size: clamp(0.9rem, 1vw, 1.1rem);
+  margin-top: 3rem;
+  border-top: 3px solid var(--accent);
+}
+
+/* Responsive tweaks */
+@media (max-width: 992px) {
+  .profile-picture {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .profile-text {
+    margin-left: 0;
+    margin-top: 1rem;
+  }
+
+  .profile-picture img {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    font-size: clamp(1.8rem, 4vw, 2.2rem);
+    padding: 1.5rem 0.5rem;
+  }
+
+  .about-page,
+  .skills-page {
+    padding: 1.5rem;
+  }
+
+  button {
+    width: 100%;
+    padding: 1rem;
+  }
+}
